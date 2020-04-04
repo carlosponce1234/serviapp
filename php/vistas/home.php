@@ -9,5 +9,14 @@ if (!isset($_SESSION["id_usuario"])) {
    echo $_SESSION["n_usuario"];
 */
 
-   
+switch ($_SESSION['tipo_usuario']) {
+   	case '1':
+   	#Administrdor
+   	header("location: dashboard.php ");
+   		break;
+   	
+   	default:
+   		# code...
+   		break;
+   }   
  ?>
