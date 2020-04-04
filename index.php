@@ -7,16 +7,16 @@ session_start();
 if (isset($_SESSION["id_usuario"])) {
 	header("location: php/vistas/home.php");
 }
-
+$error = '';
 if(!empty($_POST))
 	{
-		$usuario = mysqli_real_escape_string($mysqli,$_POST['usuario']);
-		$password = mysqli_real_escape_string($mysqli,$_POST['password']);
-		$error = '';
+		$usuario = mysqli_real_escape_string($mysqli,$_POST['n_usuario']);
+		$password = mysqli_real_escape_string($mysqli,$_POST['pass_usuario']);
+		
 		
 		//$sha1_pass = sha1($password);
 		
-		$sql =  "SELECT * FROM `usuarios` WHERE `n_usuario`= '$usuario' OR alias_usuario = '$usuario' AND `user_pass`= '$password' And user_estado = 0 ";
+		$sql =  "SELECT * FROM `usuarios` WHERE `n_usuario`= '$usuario' OR alias_usuario = '$usuario' AND `pass_usuario`= '$password' And estado_usuario = 0 ";
 		$result=$mysqli->query($sql);
 		$rows = $result->num_rows;
 		
@@ -26,9 +26,13 @@ if(!empty($_POST))
 			$_SESSION['tipo_usuario'] = $row['tipo_usuario'];
 			$_SESSION['n_usuario'] = $row['n_usuario'];
 			
-			header("location: views/home.php");
+			header("location: php/vistas/home.php");
 			} else {
-			$error = "El nombre o contraseña son incorrectos o el usuario se encuentra inactivo";
+			$error = '<div class="card mb-4 py-3 border-bottom-danger">
+                <div class="card-body">
+                  El nombre o contraseña son incorrectos o el usuario se encuentra deshabilitado.
+                </div>
+              </div>';
 		}
 	}
 
@@ -79,7 +83,7 @@ if(!empty($_POST))
                       <input type="text" class="form-control form-control-user" id="n_usuarios" aria-describedby="emailHelp" placeholder="Nombre de usuario o alias." name="n_usuario">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="pass_usuario" placeholder="Contraseña" name="pass_usuarios">
+                      <input type="password" class="form-control form-control-user" id="pass_usuario" placeholder="Contraseña" name="pass_usuario">
                     </div>
                     <input type="submit" class="btn btn-primary btn-user btn-block" value="Login">
                     <hr>
@@ -88,6 +92,7 @@ if(!empty($_POST))
                   <div class="text-center">
                     <a class="small" href="php/vistas/recuperarpass.php">olvide mi contraseña</a>
                   </div>
+                  <?php echo $error; ?>
                 </div>
               </div>
             </div>
