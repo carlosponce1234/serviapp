@@ -22,8 +22,8 @@ if(!empty($_POST))
 		
 		if($rows > 0) {
 			$row = $result->fetch_assoc();
-			$_SESSION['id_usuario'] = $row['user_id'];
-			$_SESSION['tipo_usuario'] = $row['tipo_usuario'];
+			$_SESSION['id_usuario'] = $row['id_user'];
+			$_SESSION['tipo_usuario'] = $row['cod_tipo'];
 			$_SESSION['n_usuario'] = $row['n_usuario'];
 			
 			header("location: php/vistas/home.php");
