@@ -1,8 +1,6 @@
 <?php 
 	include 'head.php';
-	if ($_SESSION['tipo_usuario'] != 1) {
-  header("Location: ../../home.php");
-};
+
 if (!isset($_GET['id_user'])) {
   header("Location: verusuarios.php");
 };
@@ -24,7 +22,7 @@ $row = $result->fetch_assoc();
 
         <form action="" method="Post" id="addusuarioform">
         	<div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">DATOS DE USUARIO: <?php echo $row['n_usuario']; ?> </h6>
+              <h6 class="identificador m-0 font-weight-bold text-primary" id="<?php echo $id_user; ?>">DATOS DE USUARIO: <?php echo $row['n_usuario']; ?> </h6>
             </div>
             <br>
 			<fieldset>
@@ -83,7 +81,7 @@ $row = $result->fetch_assoc();
 					</div>
 					<div class="form-group col-auto">
 						<br>
-						<button id="guardar" class="btn btn-primary" type="submit">Guardar y Crear Usuario</button>
+						<button id="guardar" class="btn btn-primary" type="submit">Guardar Cambios</button>
 					</div>
 				</div>
 			</fieldset>
@@ -110,6 +108,8 @@ $('#p_error').hide();
   			var correo = $('#correo').val().trim();
   			var contraseña = $('#contraseña').val().trim();
   			var tipo = $('#tipo').val();
+        var id_usuario = $('h6.identificador').attr('id');
+        console.log (id_usuario);
   			/*console.log(nombre);
   			console.log(alias);
   			console.log(correo);
@@ -130,7 +130,7 @@ $('#p_error').hide();
   			if (nombre.length == 0 || alias.length == 0 || correo.length == 0 || contraseña.length == 0 || tipo < 0 ) {
   				alert('El formulario posee errores,  no se puede procesar');	
   			}else{
-  				var operacion = 'nuevo';
+  				var operacion = 'editar';
   				//console.log(operacion);	
   				$.ajax({
   					url : '../modelos/usuarios.php',
@@ -142,10 +142,12 @@ $('#p_error').hide();
   						contraseña : contraseña,
   						tipo : tipo,
   						operacion : operacion,
+              id_usuario : id_usuario,
   					},
   					success:function(data){
 						alert(data);
-						$('#addusuarioform').trigger("reset");
+						var url = 'verusuarios.php';
+            window.location.assign(url);
 					}
   				});
   			}; 

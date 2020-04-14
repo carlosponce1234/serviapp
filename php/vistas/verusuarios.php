@@ -52,12 +52,12 @@ $row = $result->fetch_assoc();
                     </td>";
                       };
                       echo "
-                      <td><button class='btn btn-success btn-circle' id='user_edit' data-toggle='tooltip' data-placement='top' title='Editar'>
+                      <td><button class='btn btn-primary btn-circle' id='user_edit' data-toggle='tooltip' data-placement='top' title='Editar'>
                         <i class='fas fa-pen-fancy'></i>
                       </button>";
                       if ($value['estado_usuario']>0) {
                      	 echo "
-                      <button class='btn btn-warning btn-circle' id='user_info' data-toggle='tooltip' data-placement='top' title='Habilitar'>
+                      <button class='btn btn-success btn-circle' id='user_info' data-toggle='tooltip' data-placement='top' title='Habilitar'>
                         <i class='fas fa-info'></i>
                       </button>
                       </td>
@@ -98,6 +98,54 @@ $row = $result->fetch_assoc();
       	var idFila = fila.attr('id');
       	var url = 'edit_user.php?id_user='+idFila+'';
       	window.location.assign(url);
-	})
+	});
+	$(document).on('click', '#user_eliminar', function(event){
+	var cell = $(this).parent();
+    var fila = cell.parent();
+    var idFila = fila.attr('id');
+    var operacion = 'eliminar';
+    console.log (cell);
+      	console.log (fila);
+      	console.log(idFila);
+    var r = confirm('Seguro desea dehabilitar este Usuario?');
+    if (r == true) { 
+    $.ajax({
+    	url: '../modelos/usuarios.php',
+		type: 'POST',
+		data:{
+			id_usuario : idFila,
+			operacion : operacion,
+		},
+		success:function(data){
+			alert(data);
+			window.location.reload();
+		}
+    });
+      };
+});   
+$(document).on('click', '#user_info', function(event){
+	var cell = $(this).parent();
+    var fila = cell.parent();
+    var idFila = fila.attr('id');
+    var operacion = 'activar';
+    console.log (cell);
+      	console.log (fila);
+      	console.log(idFila);
+    var r = confirm('Seguro desea Habilitar este Usuario?');
+    if (r == true) { 
+    $.ajax({
+    	url: '../modelos/usuarios.php',
+		type: 'POST',
+		data:{
+			id_usuario : idFila,
+			operacion : operacion,
+		},
+		success:function(data){
+			alert(data);
+			window.location.reload();
+		}
+    });
+      };
+});        
   	});
   </script>
