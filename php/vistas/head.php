@@ -85,7 +85,7 @@ if (!isset($_SESSION["id_usuario"])) {
             <a class="collapse-item" id="sucursal" href="sucursales.php">sucursales</a>
             <h6 class="collapse-header">Control de usuarios</h6>
             <a class="collapse-item" id="addusuario" href="addusuario.php">Agragar Usuario</a>
-            <a class="collapse-item" id="editusuario" href="#">Editar Usuario</a>
+            <a class="collapse-item" id="editusuario" href="verusuarios.php">Editar Usuario</a>
             <h6 class="collapse-header">Control de clientes</h6>
             <a class="collapse-item" id="addcliente" href="#">Agragar Cliente</a>
             <a class="collapse-item" id="editcliente" href="#">Editar Cliente</a>
