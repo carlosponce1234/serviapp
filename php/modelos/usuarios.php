@@ -24,8 +24,22 @@ switch ($_POST['operacion']) {
 		$sql = "INSERT INTO usuarios (id_user , n_usuario , alias_usuario , correo , pass_usuario , cod_tipo , fecha , estado_usuario)
 		VALUES (Null , '$nombre' , '$alias' , '$correo' , '$contraseña' , '$tipo' , CURRENT_TIMESTAMP , 0)";
 		if($mysqli->query($sql) === true){
-    				echo "Usuario creado con exito.";
-				} else{
+			$sql2 = "SELECT @@identity as id From usuarios";
+			$result2 = $mysqli->query($sql2);
+			$row2 = $result2->fetch_assoc();
+			$id = $row2['id'];
+			$sql3 = "SELECT * FROM sucursales WHERE estado_sucursal = 0";
+			$result3 = $mysqli->query($sql3);
+			$row3 = $result3->fetch_assoc();
+			  foreach ($result3 as $k => $v) {
+				$suc = $v['id_sucursal'];
+				$sq = "INSERT INTO usuarioxsucursal (id_usxsuc , cod_user, cod_suc , asignado) values (null , $id , $suc , 1)";
+				if($mysqli->query($sq) === true){
+					
+				}else{echo "ERROR: No se pudo realizar la asignacion de sucursales contactar administrador. " . $mysqli->error;}
+			}echo "Usuario creado con exito.";
+
+		} else{
    				echo "ERROR: No se pudo realizar operacion. " . $mysqli->error;
 					}
 

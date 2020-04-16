@@ -54,7 +54,7 @@
 			<fieldset>
 				<div class="form-row">
 					<div class="form-group col-md-5">
-						<label for="inputState">Tipo de usuario</label>
+						<label for="tipo">Tipo de usuario</label>
      					 <select id="tipo" class="form-control">
         					<option selected disabled>asignar tipo..</option>
         					<?php 
@@ -102,11 +102,14 @@ $('#p_error').hide();
   			var correo = $('#correo').val().trim();
   			var contraseña = $('#contraseña').val().trim();
   			var tipo = $('#tipo').val();
-  			/*console.log(nombre);
-  			console.log(alias);
-  			console.log(correo);
-  			console.log(contraseña);
-  			console.log(tipo);*/
+        var suc = $('.caja').is(':checked');
+  		/*	console.log('nomb '+nombre);
+  			console.log('ali '+alias);
+  			console.log('corr '+correo);
+  			console.log('pass '+contraseña);
+  			console.log('tip '+tipo);
+        console.log('suc '+suc);*/
+
   			if (nombre.length == 0) {
   				$('#n_error').show();
   			};
@@ -123,8 +126,8 @@ $('#p_error').hide();
   				alert('El formulario posee errores,  no se puede procesar');	
   			}else{
   				var operacion = 'nuevo';
-  				//console.log(operacion);	
-  				$.ajax({
+  				//console.log('-------------------------');	
+  			$.ajax({
   					url : '../modelos/usuarios.php',
   					type : 'POST',
   					data : {
