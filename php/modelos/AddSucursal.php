@@ -13,13 +13,27 @@ switch ($_POST['operacion']) {
 			$sucursal = $_POST['sucursal'];
 			$sql = "INSERT INTO sucursales (id_sucursal, n_sucursal) VALUES(null, '$sucursal')";
 			if($mysqli->query($sql) === true){
-    				echo "Sucursal creado con exito.";
-				} else{
+				$sql2 = "SELECT @@identity as id From sucursales";
+				$result2 = $mysqli->query($sql2);
+				$row2 = $result2->fetch_assoc();
+				$id = $row2['id'];
+				$sql3 = "SELECT * FROM usuarios";
+				$result3 = $mysqli->query($sql3);
+				$row3 = $result3->fetch_assoc();
+			  		foreach ($result3 as $k => $v) {
+					$suc = $v['id_user'];
+					$sq = "INSERT INTO usuarioxsucursal (id_usxsuc , cod_user, cod_suc , asignado) values (null , $suc , $id , 1)";
+    					if($mysqli->query($sq) === true){
+					
+						}else{echo "ERROR: No se pudo realizar la asignacion de usuarios contactar administrador. " . $mysqli->error;};
+					};
+				echo "Usuario creado con exito.";
+			} else{
    				echo "ERROR: No se pudo realizar operacion. " . $mysqli->error;
-					}
-				}else{
-					echo "error . cadena vacia......";
-				};
+			};
+		}else{
+			echo "error . cadena vacia......";
+		};
 		break;
 	case 'edit':
 		if (strlen($_POST['sucursal'])>0 || strlen($_POST['id_sucursal'])>0 ) {

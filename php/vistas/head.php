@@ -2,7 +2,8 @@
 require '../conf/concxion.php';
 
 session_start();
-
+$tipo_user = $_SESSION['tipo_usuario'];
+//var_dump($tipo_user);
 if (!isset($_SESSION["id_usuario"])) {
 	header("Location: ../../index.php");
 };

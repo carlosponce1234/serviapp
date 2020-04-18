@@ -28,7 +28,7 @@ switch ($_POST['operacion']) {
 			$result2 = $mysqli->query($sql2);
 			$row2 = $result2->fetch_assoc();
 			$id = $row2['id'];
-			$sql3 = "SELECT * FROM sucursales WHERE estado_sucursal = 0";
+			$sql3 = "SELECT * FROM sucursales";
 			$result3 = $mysqli->query($sql3);
 			$row3 = $result3->fetch_assoc();
 			  foreach ($result3 as $k => $v) {
