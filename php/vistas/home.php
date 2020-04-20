@@ -12,7 +12,7 @@ if (!isset($_SESSION["id_usuario"])) {
 switch ($_SESSION['tipo_usuario']) {
    	case '1':
    	#Administrdor
-   	header("location: dashboard.php ");
+   	header("location: ../dashboard/dashboard.php ");
    		break;
    	
    	default:

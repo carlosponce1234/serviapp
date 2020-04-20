@@ -1,5 +1,5 @@
 <?php 
-	include 'head.php';
+	include '../head y footer/head.php';
 	if ($_SESSION['tipo_usuario'] != 1) {
   header("Location: ../../home.php");};
 $sql2 = "SELECT * FROM sucursales WHERE estado_sucursal = 0";
@@ -97,7 +97,7 @@ $row2 = $result2->fetch_assoc();
 
         </div>		
  <?php 
- include 'footer.php';
+ include '../head y footer/footer.php';
   ?>
   <script>
 $(document).ready(function(){
@@ -113,7 +113,7 @@ $(document).ready(function(){
 		*/
 		var operacion = 'consulta';
 		$.ajax({
-			url: '../modelos/userxsucursal.php',
+			url: '../../modelos/userxsucursal.php',
 			type: 'POST',
 			data: {
 				suc : suc,
@@ -133,7 +133,7 @@ $(document).ready(function(){
   		var user = fila.attr('user')
   		//alert(user);
   		$.ajax({
-  			url:'../modelos/userxsucursal.php',
+  			url:'../../modelos/userxsucursal.php',
   			type: 'POST',
   			data:{
   				suc : suc,
@@ -144,7 +144,7 @@ $(document).ready(function(){
   				//alert(data);
   				var operacion = 'consulta';
 				$.ajax({
-					url: '../modelos/userxsucursal.php',
+					url: '../../modelos/userxsucursal.php',
 					type: 'POST',
 				data: {
 					suc : suc,
@@ -168,7 +168,7 @@ $(document).ready(function(){
   		var user = fila.attr('user')
   		//alert(user);
   		$.ajax({
-  			url:'../modelos/userxsucursal.php',
+  			url:'../../modelos/userxsucursal.php',
   			type: 'POST',
   			data:{
   				suc : suc,
@@ -179,7 +179,7 @@ $(document).ready(function(){
   				//alert(data);
   				var operacion = 'consulta';
 				$.ajax({
-					url: '../modelos/userxsucursal.php',
+					url: '../../modelos/userxsucursal.php',
 					type: 'POST',
 				data: {
 					suc : suc,

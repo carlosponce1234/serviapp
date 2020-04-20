@@ -1,7 +1,7 @@
 <?php 
-include 'head.php';
+include '../head y footer/head.php';
 if ($_SESSION['tipo_usuario'] != 1) {
-  header("Location: ../../home.php");
+  header("Location: ../home.php");
 };
 
 $sql = "SELECT * FROM sucursales";
@@ -129,7 +129,7 @@ $row = $result->fetch_assoc();
   </div>
 </div>
  <?php 
- 	include 'footer.php';
+ 	include '../head y footer/footer.php';
   ?>
 
 
@@ -157,7 +157,7 @@ $row = $result->fetch_assoc();
 	var operacion = 'edit'; 
 	console.log (sucursal);
 	$.ajax({
-		url: '../modelos/AddSucursal.php',
+		url: '../../modelos/AddSucursal.php',
 		type: 'POST',
 		data:{
 			id_sucursal : idFila,
@@ -183,7 +183,7 @@ $(document).on('click', '#suc_eliminar', function(event){
     var r = confirm('Seguro desea dehabilitar esta Sucursal?');
     if (r == true) { 
     $.ajax({
-    	url: '../modelos/AddSucursal.php',
+    	url: '../../modelos/AddSucursal.php',
 		type: 'POST',
 		data:{
 			id_sucursal : idFila,
@@ -208,7 +208,7 @@ $(document).on('click', '#suc_info', function(event){
     var r = confirm('Seguro desea Habilitar esta Sucursal?');
     if (r == true) { 
     $.ajax({
-    	url: '../modelos/AddSucursal.php',
+    	url: '../../modelos/AddSucursal.php',
 		type: 'POST',
 		data:{
 			id_sucursal : idFila,
@@ -229,7 +229,7 @@ $(document).on('click', '#guardarSucursal', function(event){
 	console.log (sucursal);
 	$.ajax({
 
-		url: '../modelos/AddSucursal.php',
+		url: '../../modelos/AddSucursal.php',
 		type: 'POST',
 		data:{
 			sucursal : sucursal,

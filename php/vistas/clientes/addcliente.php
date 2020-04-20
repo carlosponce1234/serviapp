@@ -1,5 +1,5 @@
 <?php 
-	include 'head.php';
+	include '../head y footer/head.php';
  ?>
 	
 	<div class="container-fluid">
@@ -58,7 +58,7 @@
 
 
 <?php 
-	include 'footer.php';
+	include '../head y footer/footer.php';
  ?>
  <script>
    $(document).ready(function(){
@@ -80,7 +80,7 @@
           var operacion = 'nuevo';
           //console.log('-------------------------'); 
         $.ajax({
-            url : '../modelos/clientes.php',
+            url : '../../modelos/clientes.php',
             type : 'POST',
             data : {
               nombre : nombre,

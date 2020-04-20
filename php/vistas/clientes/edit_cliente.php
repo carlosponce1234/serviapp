@@ -1,5 +1,5 @@
 <?php 
-	include 'head.php';
+	include '../head y footer/head.php';
 if ($tipo_user === 3) {
 echo "<script>alert(' No tienes permisos para modificar clientes.'); var url = '../../index.php';window.location.assign(url);</script>";
 };
@@ -67,7 +67,7 @@ $row = $result->fetch_assoc();
           </form>
 
  <?php 
- 	include 'footer.php';
+ 	include '../head y footer/footer.php';
   ?>
   <script>
    $(document).ready(function(){
@@ -87,7 +87,7 @@ $row = $result->fetch_assoc();
         }else{
           var operacion = 'edit';
           $.ajax({
-            url : '../modelos/clientes.php',
+            url : '../../modelos/clientes.php',
             type : 'POST',
             data : {
               nombre : nombre,

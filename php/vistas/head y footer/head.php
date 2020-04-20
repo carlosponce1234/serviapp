@@ -1,13 +1,13 @@
 <?php 
-require '../conf/concxion.php';
+require '../../conf/concxion.php';
 
 session_start();
 $tipo_user = $_SESSION['tipo_usuario'];
 //var_dump($tipo_user);
 if (!isset($_SESSION["id_usuario"])) {
-	header("Location: ../../index.php");
+	header("Location: ../../../index.php");
 };
-
+  echo $_SESSION['tipo_usuario'] ;
  ?>
 
  <!DOCTYPE html>
@@ -24,12 +24,12 @@ if (!isset($_SESSION["id_usuario"])) {
   <title>Serviapp - Dashboard</title>
 
   <!-- Custom fonts for this template-->
-  <link href="../../PLANTILLA/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="../../../PLANTILLA/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="../../PLANTILLA/css/sb-admin-2.min.css" rel="stylesheet">
-    <link href="../../PLANTILLA/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link href="../../../PLANTILLA/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../../../PLANTILLA/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 <!-- Start of Async Callbell Code 
 <script>
@@ -52,7 +52,7 @@ if (!isset($_SESSION["id_usuario"])) {
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="home.php">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../home.php">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -83,14 +83,14 @@ if (!isset($_SESSION["id_usuario"])) {
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
           	<h6 class="collapse-header">Opciones generales</h6>
-            <a class="collapse-item" id="sucursal" href="sucursales.php">sucursales</a>
+            <a class="collapse-item" id="sucursal" href="../sucursales/sucursales.php">sucursales</a>
             <h6 class="collapse-header">Control de usuarios</h6>
-            <a class="collapse-item" id="addusuario" href="addusuario.php">Agragar Usuario</a>
-            <a class="collapse-item" id="editusuario" href="verusuarios.php">Editar Usuario</a>
-            <a class="collapse-item" id="editusuario" href="usuariosxsuc.php">Usuarios x Sucursal</a>
+            <a class="collapse-item" id="addusuario" href="../usuarios/addusuario.php">Agragar Usuario</a>
+            <a class="collapse-item" id="editusuario" href="../usuarios/verusuarios.php">Editar Usuario</a>
+            <a class="collapse-item" id="editusuario" href="../usuarios/usuariosxsuc.php">Usuarios x Sucursal</a>
             <h6 class="collapse-header">Control de clientes</h6>
-            <a class="collapse-item" id="addcliente" href="addcliente.php">Agragar Cliente</a>
-            <a class="collapse-item" id="editcliente" href="verclientes.php">Editar Cliente</a>
+            <a class="collapse-item" id="addcliente" href="../clientes/addcliente.php">Agragar Cliente</a>
+            <a class="collapse-item" id="editcliente" href="../clientes/verclientes.php">Editar Cliente</a>
             <h6 class="collapse-header">Control de servicios</h6>
             <a class="collapse-item" id="addservicio" href="#">Agragar Servicio</a>
             <a class="collapse-item" id="editservicio" href="#">Cambio de Precios </a>
@@ -248,7 +248,7 @@ if (!isset($_SESSION["id_usuario"])) {
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['n_usuario']; ?></span>
-                <img class="img-profile rounded-circle" src="../../PLANTILLA/img/avatar.png">
+                <img class="img-profile rounded-circle" src="../../../PLANTILLA/img/avatar.png">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

@@ -1,5 +1,5 @@
 <?php 
-include 'head.php';
+include '../head y footer/head.php';
 if ($tipo_user === 3) {
 echo "<script>alert(' No tienes permisos para modificar clientes.'); var url = '../../index.php';window.location.assign(url);</script>";
 };
@@ -55,7 +55,7 @@ $row = $result->fetch_assoc();
         </div>			
 
  <?php 
- 	include 'footer.php';
+ 	include '../head y footer/footer.php';
   ?>
   <script>
   	$(document).ready(function(){

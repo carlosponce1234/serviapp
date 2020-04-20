@@ -1,5 +1,5 @@
 <?php 
-include 'head.php';
+include '../head y footer/head.php';
 	if ($_SESSION['tipo_usuario'] != 1) {
   header("Location: ../../home.php");
 };
@@ -80,7 +80,7 @@ $row = $result->fetch_assoc();
 
         </div>		
  <?php 
- include 'footer.php';
+ include '../head y footer/footer.php';
 
   ?>
   <script>
@@ -110,7 +110,7 @@ $row = $result->fetch_assoc();
     var r = confirm('Seguro desea dehabilitar este Usuario?');
     if (r == true) { 
     $.ajax({
-    	url: '../modelos/usuarios.php',
+    	url: '../../modelos/usuarios.php',
 		type: 'POST',
 		data:{
 			id_usuario : idFila,
@@ -134,7 +134,7 @@ $(document).on('click', '#user_info', function(event){
     var r = confirm('Seguro desea Habilitar este Usuario?');
     if (r == true) { 
     $.ajax({
-    	url: '../modelos/usuarios.php',
+    	url: '../../modelos/usuarios.php',
 		type: 'POST',
 		data:{
 			id_usuario : idFila,
