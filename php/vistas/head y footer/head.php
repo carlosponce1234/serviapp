@@ -7,7 +7,7 @@ $tipo_user = $_SESSION['tipo_usuario'];
 if (!isset($_SESSION["id_usuario"])) {
 	header("Location: ../../../index.php");
 };
-  echo $_SESSION['tipo_usuario'] ;
+ // echo $_SESSION['tipo_usuario'] ;
  ?>
 
  <!DOCTYPE html>
@@ -93,9 +93,9 @@ if (!isset($_SESSION["id_usuario"])) {
             <a class="collapse-item" id="editcliente" href="../clientes/verclientes.php">Editar Cliente</a>
             <h6 class="collapse-header">Control de servicios</h6>
             <a class="collapse-item" id="addservicio" href="../servicios/addservicio.php">Agragar Servicio</a>
-            <a class="collapse-item" id="editservicio" href="#">Cambio de Precios </a>
+            <a class="collapse-item" id="editservicio" href="../servicios/verservicios.php">Cambio de Precios </a>
             <h6 class="collapse-header">Control de flota y <br> conductores</h6>
-            <a class="collapse-item" id="conductores" href="#">Conductores</a>
+            <a class="collapse-item" id="conductores" href="../flota/conductores.php">Conductores</a>
             <a class="collapse-item" id="vehiculos" href="#">Flota vehicular</a>
           </div>
         </div>
