@@ -55,8 +55,6 @@
               </div>
             </fieldset>
           </form>
-
-
 <?php 
 	include '../head y footer/footer.php';
  ?>
@@ -98,5 +96,4 @@
         //console.log('se previno el default');
       });
    });
-
  </script>
