@@ -104,5 +104,12 @@ $(document).ready(function(){
   	$(function () {
   		$('[data-toggle="tooltip"]').tooltip()
 	});
+	$(document).on('click' , '#edit_con' , function(event){
+		var cell = $(this).parent();
+      	var fila = cell.parent();
+      	var idFila = fila.attr('id');
+      	var url = 'edit_conductor.php?id_cond='+idFila+'';
+      	window.location.assign(url);
+	});
 })	
   </script>
